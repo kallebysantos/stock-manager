@@ -5,6 +5,16 @@ public record Product(
     string Name,
     string Description,
     double Price,
-    DateTime CreatedAt
+    ICollection<Supplier> Suppliers
 )
-{ }
+{
+    public DateTime CreatedAt = DateTime.Now;
+
+    public DateTime UpdatedAt = DateTime.Now;
+
+    public Product ApplyDiscount(double discount) => this with
+    {
+        Price = Price * (1 - discount),
+        UpdatedAt = DateTime.Now
+    };
+}
