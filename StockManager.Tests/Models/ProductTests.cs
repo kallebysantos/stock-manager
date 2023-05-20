@@ -15,8 +15,7 @@ public class ProductTests
             Id: Guid.NewGuid().ToString(),
             Name: "Test Product",
             Description: "Some test product.",
-            Price: initialPrice,
-            Suppliers: new HashSet<Supplier>()
+            Price: initialPrice
         );
 
         Assert.AreEqual(
