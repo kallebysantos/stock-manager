@@ -1,0 +1,62 @@
+[
+    {
+        "Id": "fb3a6e1b-8b4d-4435-9ff5-e4fa71ae41f5",
+        "Name": "Home Improvement Apparatus",
+        "Price": 188.95,
+        "Description": "Integer ut tellus leo. Aenean vehicula sem ut tortor iaculis dignissim. Fusce lorem est, molestie ut dictum id, pretium vel odio. Integer imperdiet justo quis tortor pharetra, non tempor urna ornare. Vivamus consectetur sem non egestas consequat. Integer tempus dolor lorem, at auctor turpis maximus tristique. Fusce feugiat vel tortor eget vulputate. Proin vitae venenatis nibh, at tempus nibh. Pellentesque tristique lorem nec lectus tristique ultrices. Suspendisse a leo porta, bibendum justo ut, gravida ex. Suspendisse potenti. Phasellus tempus ipsum consequat dui sagittis gravida. Donec interdum, enim eu porttitor facilisis, nunc nunc viverra dui, vitae viverra ipsum felis ac neque. Aliquam dapibus et lectus id tincidunt. Cras a mauris sed quam feugiat mollis id eu lorem."
+    },
+    {
+        "Id": "de0a347e-d979-4bab-ac0e-6095ff9f2c41",
+        "Name": "Sports Attachment",
+        "Price": 35.99,
+        "Description": "Sed nec dictum sem. Pellentesque dictum ante ac quam lobortis placerat. Suspendisse consectetur, sapien consectetur ornare venenatis, ante quam mollis lorem, a vehicula est enim sed quam. Etiam volutpat lacus diam, in elementum erat pharetra eget. Pellentesque lacus nisi, dapibus non volutpat non, lacinia nec nulla. Fusce eget purus suscipit, sagittis lacus sed, posuere mauris. Vivamus porttitor elementum iaculis. Nam id iaculis erat. Maecenas sit amet leo a magna aliquam suscipit id ut dolor. Cras vulputate nisl a scelerisque bibendum. In condimentum viverra congue. Fusce vitae ex vitae dolor venenatis aliquet. Vivamus id blandit lectus, eget vehicula nulla. Quisque laoreet ullamcorper consequat. Donec vitae risus vel lacus eleifend scelerisque."
+    },
+    {
+        "Id": "e9c7733c-a736-4797-942a-af53aba6865e",
+        "Name": "Cleaning Mechanism",
+        "Price": 90.95,
+        "Description": "Duis fermentum vestibulum elit aliquet pharetra. Aliquam vel malesuada metus. Suspendisse potenti. Morbi semper fermentum mauris, aliquam suscipit metus fermentum nec. Nunc eget libero sed dui iaculis eleifend quis sed tellus. Vivamus aliquet commodo magna id viverra. Morbi vitae neque vitae risus viverra elementum non et tellus. Maecenas laoreet tellus augue, id dictum magna dictum non. Suspendisse lorem augue, dapibus ac arcu quis, molestie accumsan enim. In lacus justo, sollicitudin vel orci vitae, ornare pretium odio. Etiam feugiat maximus nulla ut bibendum."
+    },
+    {
+        "Id": "68a0a14e-8396-46b3-8e1b-7d9603f298d7",
+        "Name": "Skin Care Thingamajig",
+        "Price": 86.99,
+        "Description": "Praesent nec commodo mauris, ut cursus odio. Donec venenatis tincidunt eros nec volutpat. Nulla convallis egestas finibus. Proin tellus nunc, cursus quis massa a, congue dictum massa. Phasellus tincidunt tristique placerat. Proin imperdiet feugiat consectetur. Nullam rhoncus ullamcorper libero quis viverra."
+    },
+    {
+        "Id": "5cc8c0f4-d5e0-4e1d-a18b-74db75f91823",
+        "Name": "Engine Component",
+        "Price": 150.95,
+        "Description": "Praesent nec euismod ex. Cras pharetra auctor imperdiet. Maecenas nisi ipsum, tristique eu metus eu, tincidunt accumsan nibh. Aenean et purus faucibus, fermentum risus eget, posuere diam. Fusce eget orci non sapien gravida sagittis. Curabitur placerat condimentum tortor. Duis cursus feugiat sem, quis convallis mi lobortis vitae. Praesent in dui mi. Ut egestas consectetur massa, vitae vulputate diam feugiat vitae. Nam tincidunt dui massa, et lacinia arcu cursus a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris eu malesuada elit. Praesent accumsan venenatis leo eget tempor. Quisque luctus consequat faucibus."
+    },
+    {
+        "Id": "0b253fee-e8f4-4ab4-a386-91ba964e0dc0",
+        "Name": "Personal Doodad",
+        "Price": 132.95,
+        "Description": "Nunc viverra fringilla purus nec pellentesque. Nulla pellentesque sagittis mi, id lacinia nisl fringilla a. Suspendisse potenti. Sed vel sem quis sapien cursus convallis placerat sit amet sapien. Sed mollis imperdiet metus vel malesuada. Curabitur vel dignissim nunc. Morbi dapibus imperdiet elit at blandit. Donec non feugiat quam, et vestibulum felis. Donec venenatis enim vitae ante pellentesque sollicitudin. Donec sed pretium risus, eget vestibulum lacus. Donec sed tempus velit. In elementum lectus vitae facilisis faucibus. Aliquam elementum aliquet nulla, posuere venenatis nisi laoreet at. Suspendisse ac nulla dui. Cras at semper elit."
+    },
+    {
+        "Id": "bfa5b7e5-1031-43c9-9a50-1cfd62cdea65",
+        "Name": "Camera Gadget",
+        "Price": 95.99,
+        "Description": "Phasellus eget fringilla justo. Integer sem mauris, viverra non ligula sagittis, consectetur pharetra tortor. Donec et varius leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra mollis ante, eget vestibulum turpis vestibulum vel. Donec dictum, tellus vitae fermentum egestas, erat leo tristique orci, ut aliquet lectus massa sed mauris. Integer viverra hendrerit nisl a vulputate. Pellentesque finibus auctor nisl, nec aliquet magna cursus ut."
+    },
+    {
+        "Id": "1235609b-e956-430d-8197-c0b235c8c6d1",
+        "Name": "Cooking Kit",
+        "Price": 62,
+        "Description": "Suspendisse eros enim, iaculis sodales auctor et, tincidunt quis enim. Integer leo nisi, fringilla sed porta non, convallis non mi. Aenean erat tortor, vehicula vitae mattis non, elementum vel urna. Fusce efficitur felis sed dui mollis, euismod vehicula purus eleifend. Ut tempor risus eget nisi suscipit porta. Maecenas molestie imperdiet purus, eget imperdiet velit convallis sed. Aliquam venenatis hendrerit malesuada. Mauris id felis turpis. Nunc pretium nisi aliquam rutrum elementum. Sed malesuada massa quis ipsum commodo fermentum. Sed id nulla velit."
+    },
+    {
+        "Id": "d5f8e8b7-d1e7-4903-8298-06b5aa161d4d",
+        "Name": "Storage Apparatus",
+        "Price": 58.95,
+        "Description": "Morbi nulla massa, accumsan ut congue tempus, aliquam sit amet libero. Mauris euismod, est nec consectetur blandit, diam nisi lobortis enim, vitae suscipit libero erat hendrerit sapien. Nam vel sapien ipsum. Quisque sagittis lectus lacinia orci aliquet sollicitudin. Integer convallis turpis vitae condimentum tincidunt. Phasellus quis erat at sem dignissim tempor eu quis purus. Sed viverra ullamcorper volutpat."
+    },
+    {
+        "Id": "19857d38-902b-4e63-8d32-70c36f277341",
+        "Name": "Biking Accessory",
+        "Price": 35.99,
+        "Description": "In pulvinar ullamcorper lectus, id venenatis magna tincidunt eu. Etiam maximus blandit lacinia. Quisque malesuada auctor posuere. Donec iaculis ante in arcu hendrerit euismod. Mauris vel tincidunt risus. In bibendum, nisl nec aliquet blandit, neque nulla semper enim, ac mattis ligula ante ac tellus. Fusce maximus, turpis ut facilisis interdum, quam nisl mollis diam, quis commodo dui est a est."
+    }
+]

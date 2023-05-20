@@ -1,11 +1,17 @@
+using System.Text.Json;
 using StockManager.Domain.Contracts.Repositories;
 using StockManager.Domain.Models;
 
 namespace StockManager.Tests.Mocks.Repositories;
 
-public sealed class SupplierRepositoryMock : SupplierRepository
+public sealed record SupplierRepositoryMock() : BaseMockRepository<Supplier>, SupplierRepository
 {
-    public HashSet<Supplier> Suppliers { get; set; } = new();
+    public SupplierRepositoryMock(string jsonMock) : this()
+    {
+        var jsonFile = File.OpenRead(Path.Combine("../Data", jsonMock, ".json"));
+
+        JsonSerializer.Deserialize<HashSet<Product>>(jsonFile);
+    }
 
     public Task<Supplier?> FindSupplierById(string SupplierId)
     {
@@ -18,12 +24,12 @@ public sealed class SupplierRepositoryMock : SupplierRepository
     }
 
     public Task<IEnumerable<Supplier>> GetSuppliersByIds(string[] supplierIds, bool lazy = false)
-        => Task.FromResult(Suppliers.Where(s => supplierIds.Contains(s.Id)));
+        => Task.FromResult(Entities!.Where(s => supplierIds.Contains(s.Id)));
 
 
     public Task PersistSupplier(Supplier Supplier)
     {
-        Suppliers.Add(Supplier);
+        Entities!.Add(Supplier);
 
         return Task.CompletedTask;
     }

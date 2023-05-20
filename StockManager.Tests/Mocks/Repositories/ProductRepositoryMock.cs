@@ -1,12 +1,11 @@
+using System.Text.Json;
 using StockManager.Domain.Contracts.Repositories;
 using StockManager.Domain.Models;
 
 namespace StockManager.Tests.Mocks.Repositories;
 
-public sealed class ProductRepositoryMock : ProductRepository
+public sealed record ProductRepositoryMock() : BaseMockRepository<Product>, ProductRepository
 {
-    public HashSet<Product> Products { get; set; } = new();
-
     public Task<Product?> FindProductById(string productId)
     {
         throw new NotImplementedException();
@@ -19,7 +18,7 @@ public sealed class ProductRepositoryMock : ProductRepository
 
     public Task PersistProduct(Product product)
     {
-        Products.Add(product);
+        Entities!.Add(product);
 
         return Task.CompletedTask;
     }
