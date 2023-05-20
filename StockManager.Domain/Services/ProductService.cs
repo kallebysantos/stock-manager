@@ -6,7 +6,7 @@ using StockManager.Domain.Models;
 
 namespace StockManager.Domain.Services;
 
-record ProductService(
+public record ProductService(
     IdProvider IdProvider,
     ValidationProvider Validator,
     UnitOfWorkProvider UnitOfWork,
