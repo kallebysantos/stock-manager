@@ -14,7 +14,7 @@ public record Product(
 
     public Product ApplyDiscount(double discount) => this with
     {
-        Price = Price * (1 - discount),
+        Price = Price * (1 - discount / 100),
         UpdatedAt = DateTime.Now
     };
 }
