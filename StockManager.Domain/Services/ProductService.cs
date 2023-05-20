@@ -9,6 +9,7 @@ namespace StockManager.Domain.Services;
 record ProductService(
     IdProvider IdProvider,
     ValidationProvider Validator,
+    UnitOfWorkProvider UnitOfWork,
     ProductRepository ProductRepository,
     SupplierRepository SupplierRepository
 )
@@ -29,13 +30,24 @@ record ProductService(
             Price: payload.Price!.Value
         );
 
-        foreach (var supplier in await SupplierRepository.GetSuppliersByIds(supplierIds, lazy: true))
+        try
         {
-            product.AssociateSupplier(supplier);
+            await UnitOfWork.Begin();
+
+            foreach (var supplier in await SupplierRepository.GetSuppliersByIds(supplierIds, lazy: true))
+            {
+                product.AssociateSupplier(supplier);
+            }
+
+            await ProductRepository.PersistProduct(product);
+            await UnitOfWork.Commit();
+
+            return product;
         }
-
-        await ProductRepository.PersistProduct(product);
-
-        return product;
+        catch (Exception)
+        {
+            await UnitOfWork.Rollback();
+            throw;
+        }
     }
 }
