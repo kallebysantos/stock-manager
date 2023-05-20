@@ -12,7 +12,7 @@ public class ProductTests
     public void Apply_Discount(double initialPrice, double discount, double finalPrice)
     {
         var product = new Product(
-            Id: Guid.NewGuid(),
+            Id: Guid.NewGuid().ToString(),
             Name: "Test Product",
             Description: "Some test product.",
             Price: initialPrice,

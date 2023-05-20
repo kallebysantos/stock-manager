@@ -1,7 +1,7 @@
 namespace StockManager.Domain.Models;
 
 public record Product(
-    Guid Id,
+    string Id,
     string Name,
     string Description,
     double Price,
