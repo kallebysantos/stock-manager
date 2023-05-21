@@ -1,5 +1,6 @@
 
 using StockManager.Domain.Contracts.Payloads.Product;
+using StockManager.Domain.Contracts.Providers;
 using StockManager.Domain.Services;
 
 namespace StockManager.Tests.Services;
@@ -21,7 +22,7 @@ public class ProductServiceTests
             ProductRepository: _productsMock,
             SupplierRepository: _suppliersMock,
             IdProvider: new IdProviderMock(),
-            Validator: new ValidationProviderMock(),
+            Validator: new DefaultValidationProvider(),
             UnitOfWork: new UnitOfWorkProviderMock()
         );
         #endregion
@@ -55,5 +56,33 @@ public class ProductServiceTests
 
         Assert.Equal(11, _productsMock.Entities!.Count);
         Assert.Equal(3, product.Suppliers.Count);
+    }
+
+    [Theory]
+    [InlineData(null!, null!, 0)]
+    [InlineData("", "12345", -1)]
+    [InlineData("Test", "123", 1)]
+    public async Task Create_Product_Invalid_data(string? Name, string? Description, double Price)
+    {
+        #region Setup
+
+        var _productsMock = new ProductRepositoryMock();
+
+        var _service = new ProductService(
+            ProductRepository: _productsMock,
+            Validator: new DefaultValidationProvider(),
+            SupplierRepository: new SupplierRepositoryMock(),
+            IdProvider: new IdProviderMock(),
+            UnitOfWork: new UnitOfWorkProviderMock()
+        );
+        #endregion
+
+        var payload = new CreateProductPayload(Name!, Description!, Price);
+
+        await Assert.ThrowsAsync<FluentValidation.ValidationException>(async () =>
+        {
+            var product = await _service.CreateProduct(payload, new string[0]);
+            Assert.Null(product);
+        });
     }
 }

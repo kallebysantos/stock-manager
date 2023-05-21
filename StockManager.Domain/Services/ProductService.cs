@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
 using StockManager.Domain.Contracts.Payloads.Product;
 using StockManager.Domain.Contracts.Providers;
 using StockManager.Domain.Contracts.Repositories;
