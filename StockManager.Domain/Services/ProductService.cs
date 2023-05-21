@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using StockManager.Domain.Contracts.Payloads.Product;
 using StockManager.Domain.Contracts.Providers;
@@ -16,18 +17,13 @@ public record ProductService(
 {
     public async Task<Product> CreateProduct(CreateProductPayload payload, string[] supplierIds)
     {
-        var isInvalid = !Validator.Validate(payload);
-
-        if (isInvalid)
-        {
-            throw new ValidationException(nameof(CreateProductPayload));
-        }
+        await Validator.ValidateAsync(payload);
 
         var product = new Product(
             Id: await IdProvider.GenerateId(),
-            Name: payload.Name!,
-            Description: payload.Description!,
-            Price: payload.Price!.Value
+            Name: payload.Name,
+            Description: payload.Description,
+            Price: payload.Price
         );
 
         try
