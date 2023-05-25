@@ -7,15 +7,18 @@ namespace StockManager.Domain.Services;
 
 public record ProductService(
     IdProvider IdProvider,
-    ValidationProvider Validator,
     UnitOfWorkProvider UnitOfWork,
     ProductRepository ProductRepository,
     SupplierRepository SupplierRepository
 )
 {
-    public async Task<Product> CreateProduct(CreateProductPayload payload, string[] supplierIds)
+    public async Task<Result<Product>> CreateProduct(CreateProductPayload payload, string[] supplierIds)
     {
-        await Validator.ValidateAsync(payload);
+        var result = await payload.ValidateAsync();
+        if(result.IsFailed)
+        {
+            return Result.Fail(result.Errors);
+        }
 
         var product = new Product(
             Id: await IdProvider.GenerateId(),
@@ -34,14 +37,16 @@ public record ProductService(
             }
 
             await ProductRepository.PersistProduct(product);
+            
             await UnitOfWork.Commit();
 
             return product;
         }
-        catch (Exception)
+        catch (Exception err)
         {
             await UnitOfWork.Rollback();
-            throw;
+            
+            return new Error(err.Message).CausedBy(err);
         }
     }
 }

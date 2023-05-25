@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using FluentValidation;
 
 namespace StockManager.Domain.Contracts.Payloads.Product;
@@ -10,17 +9,13 @@ public record CreateProductPayload
     double Price
 ) : IPayload
 {
-    public void Validate()
-    {
-        var validator = new CreateProductPayloadValidator();
-        validator.ValidateAndThrow(this);
-    }
+    private CreateProductPayloadValidator _validator = new();
+    
+    public Result Validate()
+        => _validator.Validate(this).ToFluentResult();
 
-    public async Task ValidateAsync()
-    {
-        var validator = new CreateProductPayloadValidator();
-        await validator.ValidateAndThrowAsync(this);
-    }
+    public async Task<Result> ValidateAsync()
+        => (await _validator.ValidateAsync(this)).ToFluentResult();
 }
 
 public class CreateProductPayloadValidator : AbstractValidator<CreateProductPayload>
