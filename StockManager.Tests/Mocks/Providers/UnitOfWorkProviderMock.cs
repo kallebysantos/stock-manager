@@ -4,11 +4,11 @@ namespace StockManager.Tests.Mocks.Providers;
 
 public sealed class UnitOfWorkProviderMock : UnitOfWorkProvider
 {
-    public Task Begin() => Task.CompletedTask;
+    public Task<Result> Begin() => Task.FromResult(Result.Ok());
 
-    public Task Commit() => Task.CompletedTask;
+    public Task<Result> Commit() => Task.FromResult(Result.Ok());
 
-    public Task Rollback() => Task.CompletedTask;
+    public Task<Result> Rollback() => Task.FromResult(Result.Ok());
 
     public async ValueTask DisposeAsync() => await Task.FromResult(0);
 }

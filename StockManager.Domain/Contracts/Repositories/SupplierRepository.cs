@@ -17,7 +17,7 @@ public interface SupplierRepository
     /// Retrieves all Suppliers based on their IDs.
     /// </summary>
     /// <returns>A task that represents the asynchronous operation. The task result contains a collection of Suppliers.</returns>
-    Task<IEnumerable<Supplier>> GetSuppliersByIds(string[] supplierIds, bool lazy = false);
+    Task<Result<IEnumerable<Supplier>>> GetSuppliersByIds(string[] supplierIds, bool lazy = false);
 
     /// <summary>
     /// Finds a Supplier by its unique identifier.

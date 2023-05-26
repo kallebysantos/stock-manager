@@ -2,9 +2,9 @@ namespace StockManager.Domain.Contracts.Providers;
 
 public interface UnitOfWorkProvider : IAsyncDisposable
 {
-    Task Begin();
+    Task<Result> Begin();
 
-    Task Commit();
+    Task<Result> Commit();
 
-    Task Rollback();
+    Task<Result> Rollback();
 }

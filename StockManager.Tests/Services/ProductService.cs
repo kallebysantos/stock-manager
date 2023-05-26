@@ -112,7 +112,7 @@ public class ProductServiceTests
 
         var result = await _service.CreateProduct(payload, suppliersIds);
         result.Should().BeFailure();
-        result.Should().BeNull();
+        result.Should().HaveError("Invalid SupplierId");
 
     }
 }

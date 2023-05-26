@@ -1,4 +1,3 @@
-using System.Text.Json;
 using StockManager.Domain.Contracts.Repositories;
 using StockManager.Domain.Models;
 
@@ -16,11 +15,11 @@ public sealed record ProductRepositoryMock() : BaseMockRepository<Product>, Prod
         throw new NotImplementedException();
     }
 
-    public Task PersistProduct(Product product)
+    public Task<Result> PersistProduct(Product product)
     {
         Entities!.Add(product);
 
-        return Task.CompletedTask;
+        return Task.FromResult(Result.Ok());
     }
 
     public Task RemoveProductById(string productId)

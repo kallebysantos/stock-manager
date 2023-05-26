@@ -23,9 +23,17 @@ public sealed record SupplierRepositoryMock() : BaseMockRepository<Supplier>, Su
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Supplier>> GetSuppliersByIds(string[] supplierIds, bool lazy = false)
-        => Task.FromResult(Entities!.Where(s => supplierIds.Contains(s.Id)));
+    public Task<Result<IEnumerable<Supplier>>> GetSuppliersByIds(string[] supplierIds, bool lazy = false)
+    {
 
+        var allSuppliersMatchs = Entities!.Count(s => supplierIds.Contains(s.Id)) == supplierIds.Count();
+
+        var suppliers = Entities!.Where(s => supplierIds.Contains(s.Id));
+
+        var result = Result.OkIf(allSuppliersMatchs, "Invalid SupplierId").ToResult(suppliers);
+
+        return Task.FromResult(result);
+    }
 
     public Task PersistSupplier(Supplier Supplier)
     {

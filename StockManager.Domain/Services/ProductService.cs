@@ -15,7 +15,7 @@ public record ProductService(
     public async Task<Result<Product>> CreateProduct(CreateProductPayload payload, string[] supplierIds)
     {
         var result = await payload.ValidateAsync();
-        if(result.IsFailed)
+        if (result.IsFailed)
         {
             return Result.Fail(result.Errors);
         }
@@ -27,26 +27,32 @@ public record ProductService(
             Price: payload.Price
         );
 
-        try
+        await UnitOfWork.Begin();
+
+        var suppliers = await SupplierRepository.GetSuppliersByIds(supplierIds, lazy: true);
+        if (suppliers.IsFailed)
         {
-            await UnitOfWork.Begin();
-
-            foreach (var supplier in await SupplierRepository.GetSuppliersByIds(supplierIds, lazy: true))
-            {
-                product.AssociateSupplier(supplier);
-            }
-
-            await ProductRepository.PersistProduct(product);
-            
-            await UnitOfWork.Commit();
-
-            return product;
+            return Result.Fail(suppliers.Errors);
         }
-        catch (Exception err)
+
+        foreach (var supplier in suppliers.Value)
+        {
+            product.AssociateSupplier(supplier);
+        }
+
+        var hasPersisted = await ProductRepository.PersistProduct(product);
+        if (hasPersisted.IsFailed)
+        {
+            return Result.Fail(hasPersisted.Errors);
+        }
+
+        var hasCommited = await UnitOfWork.Commit();
+        if (hasCommited.IsFailed)
         {
             await UnitOfWork.Rollback();
-            
-            return new Error(err.Message).CausedBy(err);
+            return Result.Fail(hasCommited.Errors);
         }
+
+        return product;
     }
 }

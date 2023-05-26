@@ -25,7 +25,7 @@ public interface ProductRepository
     /// </summary>
     /// <param name="product">The product to persist.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    Task PersistProduct(Product product);
+    Task<Result> PersistProduct(Product product);
 
     /// <summary>
     /// Removes a product by its unique identifier.
